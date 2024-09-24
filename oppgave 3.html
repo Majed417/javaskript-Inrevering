@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNT fjellhytte Check-In</title>
+    <script> 
+        function sjekkInn() {
+            const currentHour = new Date().getHours();
+            let hilsen;
+
+            if (currentHour < 10) {
+                hilsen = "God morgen din fjellgeit!";
+            } else {
+                hilsen = "God dag fin fjekkgeit!";
+            }
+
+            // Vis meldingen til brukeren
+            document.getE1ementById("melding").innerText = hilsen;
+        }
+    </script>
+</head>
+<body>
+        <h1>Velkommen til DNT fjellhytte</h1>
+        <P>Trykk på knappen for å sjekke inn:</P>
+
+        <button onclick="sjekkInn()">sjekk inn</button>
+
+        <p id="melding"></p>
+</body>
+</html>

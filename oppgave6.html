@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terningkast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .critical-hit {
+            color: red;
+            font-weight: bold;
+        }
+
+        .sword {
+            display: none;
+            width: 50px;
+            height: 50px;
+        }
+
+        .sword.animate {
+            display: inline;
+            animation: swing 1s ease-in-out;
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Terningkast</h1>
+    <p>Velg en terning:</p>
+    <button onclick="trillTerning(4)">Trill d4</button>
+    <button onclick="trillTerning(6)">Trill d6</button>
+    <button onclick="trillTerning(8)">Trill d8</button>
+    <button onclick="trillTerning(10)">Trill d10</button>
+    <button onclick="trillTerning(12)">Trill d12</button>
+    <button onclick="trillTerning(20)">Trill d20</button>
+    <button onclick="trillProsent()">Prosentkast (1-100)</button>
+
+    <div class="result" id="resultat"></div>
+    <img src="https://cdn-icons-png.flaticon.com/512/1936/1936400.png" alt="Sword" class="sword" id="sword">
+
+    <script>
+        // Funksjon for å trill en valgfri terning
+        function trillTerning(oyne) {
+            const resultat = Math.floor(Math.random() * oyne) + 1;
+            visResultat(resultat, oyne);
+        }
+
+        // Funksjon for prosentkast (1-100)
+        function trillProsent() {
+            const resultat = Math.floor(Math.random() * 100) + 1;
+            visResultat(resultat, 100);
+        }
+
+        // Funksjon for å vise resultat og sjekke om det er critical hit
+        function visResultat(resultat, oyne) {
+            const resultatDiv = document.getElementById('resultat');
+            const sword = document.getElementById('sword');
+            sword.classList.remove('animate');
+
+            if (resultat === oyne) {
+                resultatDiv.innerHTML = `<span class="critical-hit">Critical Hit! 🎉 Du trillet ${resultat}!</span>`;
+                sword.classList.add('animate'); // Spill animasjon for critical hit
+                sword.style.display = 'inline';
+            } else {
+                resultatDiv.innerHTML = `Du trillet ${resultat} på en d${oyne}.`;
+                sword.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

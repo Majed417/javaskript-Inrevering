@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorittquiz</title>
+    <script>
+        function startQuiz() {
+            let poeng = 0;
+
+            // Spørsmål 1
+            let svar1 = prompt("Hvem spiller hovedrollen i filmen 'Dune'?");
+            if (svar1.toLowerCase() === "timothée chalamet") {
+                alert("Riktig!");
+                poeng++;
+            } else {
+                alert("Feil. Riktig svar er Timothée Chalamet.");
+            }
+
+            // Spørsmål 2
+            let svar2 = prompt("Hvilket år ble 'Dune' utgitt?");
+            if (svar2 === "2021") {
+                alert("Riktig!");
+                poeng++;
+            } else {
+                alert("Feil. Riktig svar er 2021.");
+            }
+
+            // Spørsmål 3
+            let svar3 = prompt("Hvem regisserte filmen 'Dune'?");
+            if (svar3.toLowerCase() === "denis villeneuve") {
+                alert("Riktig!");
+                poeng++;
+            } else {
+                alert("Feil. Riktig svar er Denis Villeneuve.");
+            }
+
+            // Spørsmål 4 (ekstra)
+            let svar4 = prompt("Hva heter boken 'Dune' sin forfatter?");
+            if (svar4.toLowerCase() === "frank herbert") {
+                alert("Riktig!");
+                poeng++;
+            } else {
+                alert("Feil. Riktig svar er Frank Herbert.");
+            }
+
+            // Vise poengsummen
+            alert("Du fikk " + poeng + " av 4 riktige!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz om filmen 'Dune'</h1>
+    <p>Trykk på knappen for å starte quizen:</p>
+    
+    <button onclick="startQuiz()">Start quiz</button>
+</body>
+</html>
